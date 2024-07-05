@@ -13,8 +13,10 @@ Para asegurar la seguridad de los usuarios, implementamos un sistema de pruebas 
       - Utiliza bibliotecas como cv2, face_recognition, y mediapipe para procesar las imágenes y realizar el análisis.
 
 2. Descripción grafica
+   
+    ![Texto del párrafo (1)](https://github.com/MatiasM12/Cuidar-Tech-Frontend/assets/86579814/2c332b3f-3bb8-4303-b792-e7394c1f3656)
+    ![Texto del párrafo (2)](https://github.com/MatiasM12/Cuidar-Tech-Frontend/assets/86579814/35ada39a-9e08-49fd-abed-fab03603725b)
 
-[gif]
 
 ### Predicción de Rutinas
 Utilizando técnicas de Machine Learning, para predecir si el victimario puede violar la restricción perimetral impuesta. Esta funcionalidad es crucial para prevenir posibles incidentes antes de que ocurran, proporcionando una capa adicional de seguridad para las víctimas.
@@ -26,7 +28,8 @@ Utilizando técnicas de Machine Learning, para predecir si el victimario puede v
 
 2. Descripción grafica
 
-[gif]
+    ![Texto del párrafo (5)](https://github.com/MatiasM12/Cuidar-Tech-Frontend/assets/86579814/d5ee9fbb-9338-44bf-a5c6-114b6eb2e833)
+
 
 ## Instrucciones para ejecutar el código 👨‍🏫
 
