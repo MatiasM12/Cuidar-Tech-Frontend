@@ -24,6 +24,7 @@ Para asegurar la seguridad de los usuarios, implementamos un sistema de pruebas 
    
     ![Texto del párrafo (1)](https://github.com/MatiasM12/Cuidar-Tech-Frontend/assets/86579814/2c332b3f-3bb8-4303-b792-e7394c1f3656)
     ![Texto del párrafo (2)](https://github.com/MatiasM12/Cuidar-Tech-Frontend/assets/86579814/35ada39a-9e08-49fd-abed-fab03603725b)
+    *(si una de las dos condiciones no se cumple, las pruebas de vida pasan a ser rechazadas)
 
 
 ### Predicción de Rutinas
