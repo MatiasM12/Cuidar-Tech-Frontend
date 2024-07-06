@@ -99,5 +99,5 @@ Las cuentas validas a las que podemos acceder son:
     ![image](https://github.com/Nicolas2k19/PP2Frontend/assets/86579814/1e39074e-21d2-4e91-bfc3-1e7443df763f)
 
 ## Manual de usuario 📕
-Para obtener una guia detallada de como funciona el sistema porfavopr leea el manual de usuario que subimos a esta repositorio.
+Para obtener una guia detallada de como funciona el sistema porfavor leea el manual de usuario que subimos a esta repositorio.
 
