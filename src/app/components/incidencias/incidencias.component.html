@@ -1,0 +1,119 @@
+<div class="container">
+    <ngx-spinner type="ball-clip-rotate" size="medium" bdColor="rgba(51,51,51,0.3)" color="#26294D">
+        <p style="font-size: 15px; font-weight: bold; color: #26294D">Cargando...</p>
+    </ngx-spinner>
+    <div class="row">
+        <div class="col">
+            <nav class="navbar navbar-expand-lg navbar-light incidencia-head">
+                <a class="navbar-brand" id="restriccionSeleccionada"> </a>
+                <div class="collapse navbar-collapse" id="navbarColor03" >
+                    <ul class="navbar-nav mr-auto" *ngIf="showSelect">
+                    </ul>
+                    <form class="form-inline my-2 my-lg-0 form-filtro" *ngIf="showSelect">
+                        <select class=" select-estilo" name="tipoIncidencia" [(ngModel)]="filtroSeleccionado" ngbTooltip="Filtrar por:" required>
+                            <option value="1">Todas</option>
+                            <option value="VictimarioIlocalizable">Victimario ilocalizable</option>
+                            <option value="DamnificadaIlocalizable">Damnificada ilocalizable</option>
+                            <option value="PruebaDeVidaFallida">Prueba de vida</option>
+                            <option value="InfraccionDeRestriccion">Infracción</option>
+                            <option value="FueraDeRutina">Fuera de rutina</option>
+                            <option value="PeligrosidadA">Peligrosidad alta</option>
+                            <option value="PeligrosidadM">Peligrosidad media</option>
+                            <option value="PeligrosidadB">Peligrosidad baja</option>
+
+                            
+                        </select>
+                        <button class="btn-incidencia-filtro btn-secondary my-2 my-sm-0" *ngIf="showSelect" type="button"
+                            (click)="filtroIncidencia()">Search</button>
+                    </form>
+                </div>
+            </nav>
+        </div>
+        <div class="filtro" >
+            <button class="image-button" (click)="toggleSelect()">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" 
+                    class="bi bi-funnel-fill" viewBox="0 0 16 16" style="width: 24px; height: 24px;">
+                    <path
+                        d="M1.5 1.5A.5.5 0 0 1 2 1h12a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.128.334L10 8.692V13.5a.5.5 0 0 1-.342.474l-3 1A.5.5 0 0 1 6 14.5V8.692L1.628 3.834A.5.5 0 0 1 1.5 3.5z" />
+                </svg>
+            </button>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">
+                            <div class = "header-tabla">
+                                Tipo de incidencia
+                                <a (click)="ordenarPorTipo()">
+                                    <i class="material-icons ordenamiento">unfold_more</i>
+                                </a>
+                            </div>
+                            </th>
+                        <th scope="col">
+                            <div class = "header-tabla">
+                                Fecha y Hora
+                                <a (click)="ordenarPorFechayHora()">
+                                    <i class="material-icons ordenamiento">unfold_more</i>
+                                </a>
+                            </div></th>
+                        <th scope="col">
+                            <div class = "header-tabla">
+                                Datos generales
+                            </div>
+                            </th>
+                        <th scope="col">
+                            <div class = "header-tabla">
+                                Nivel de peligrosidad
+                                <a (click)="ordenarPorPeligrosidad()">
+                                    <i class="material-icons ordenamiento">unfold_more</i>
+                                </a>
+                            </div>
+                            </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let incidencia of incidencias" (click)="seleccionarIncidencia(incidencia)">
+                        <td>{{incidencia.topico}}</td>
+                        <td class="joinedDate">{{incidencia.fecha | date:'dd-MM-yyyy HH:mm'}}</td>
+                        <td>{{incidencia.descripcion}}</td>
+                        <td class="pelig">
+                            <div
+                                *ngIf="!editandoPeligrosidad && incidencia.peligrosidad !== 'NO_CATEGORIZADO'; else editPeligrosidad">
+                                {{ incidencia.peligrosidad }}
+                               
+                            </div>
+                            <ng-template #editPeligrosidad>
+
+                                <a (click)="guardarPeligrosidad = !guardarPeligrosidad" *ngIf=" guardarPeligrosidad === false ">
+                                    No definido <i class="material-icons edit-icon">edit</i>
+                                </a>
+
+
+                                <select name="" id=""
+                                    *ngIf="guardarPeligrosidad "
+                                    [(ngModel)]="peligrosidadElegida" class="select-estilo">
+                                    <option value="ALTA">Alta</option>
+                                    <option value="MEDIA">Media</option>
+                                    <option value="BAJA">Baja</option>
+                                </select>
+                                <button class = "btn-save" (click)=" guardandoPeligrosidad(incidencia) " 
+                                *ngIf=" guardarPeligrosidad" >Guardar</button>
+
+
+                            </ng-template>
+
+
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="text-center">
+        <a class="cargarMas" (click)="cargarMas()">Cargar más ...</a>
+    </div>
+</div>

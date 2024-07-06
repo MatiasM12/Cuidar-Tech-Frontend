@@ -1,0 +1,359 @@
+<ngx-spinner type="ball-pulse-sync" size="medium" bdColor="rgba(51,51,51,0.5)">
+    <p style="font-size: 15px; font-weight: bold; color: white">Cargando...</p>
+</ngx-spinner>
+<div class="container" [ngClass]="{'blurred': modalAbierta}">
+    <div class="row">
+        <!-- FORMULARIO DE RESTRICCIONES -->
+        <div *ngIf="mostrarAbmRestricciones && !restriccionFisica" class="col-4">
+            <div class="card" style="max-width: 20rem;">
+                <div class="card-body">
+                    <legend>Añadir restricción</legend>
+                    <form #restriccionForm="ngForm" (ngSubmit)="guardarRestriccion(restriccionForm)" novalidate>
+                        <div class="personas-a-vigilar">
+                            <div class="input-texto-before-damnificada" [ngClass]="{ 'error': errorCampoDamnificada}">
+                                <div class="input-group">
+                                    <input class="form-control input-texto" type="tel" name="dniDamnificada"
+                                        ngbTooltip="DNI damnificada" [(ngModel)]="damnificada.dni">
+                                </div>
+                            </div>
+                            <div class="input-texto-before-victimario" [ngClass]="{ 'error': errorCampoVictimario}">
+                                <div class="input-group">
+                                    <input class="form-control input-texto" type="tel" name="dniVictimario"
+                                        ngbTooltip="DNI victimario" [(ngModel)]="victimario.dni">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="input-before-selector-grupos" [ngClass]="{ 'error': errorCampoSelectorGrupo}">
+                            <select class="select-estilo" name="" id="" [(ngModel)]="grupoSeleccionado">
+                                <option value={{grupo}} *ngFor="let grupo of grupos">
+                                    {{"Grupo "+grupo}}
+                                </option>
+                            </select>
+                        </div>
+                        <div class="input-before-selector-distancia" [ngClass]="{ 'error': errorCampoDistancia}">
+                            <input class="form-control select-estilo " type="number" name="distancia"
+                                placeholder="Distancia" ngbTooltip="Distancia restricción" #distancia="ngModel"
+                                min="200"
+                                [ngClass]="{ 'is-invalid': distancia.invalid && distancia.touched, 'is-valid': distancia.valid}"
+                                [(ngModel)]="restriccion.distancia" pattern="^[0-9]+" required>
+                            <div class="invalid-feedback d-block"
+                                *ngIf="distancia.invalid && (distancia.dirty || distancia.touched)">
+                                Distancia requerida
+                            </div>
+                        </div>
+                        <div class="input-before-selector-fecha " [ngClass]="{ 'error': errorCampoFecha}">
+                            <div class="input-group">
+                                <input class="form-control fecha" placeholder="Fecha (Año-Mes-Día)" name="dp"
+                                    [(ngModel)]="restriccion.fechaSentencia" ngbDatepicker #d="ngbDatepicker"
+                                    ngbTooltip="Fecha de sentencia" [minDate]="{year: 1900, month: 1, day: 1}"
+                                    [maxDate]="maxDatePicker" readonly required>
+                                <div class="input-group-append">
+                                    <button class="btn btn-outline-secondary calendar" (click)="d.toggle()"
+                                        type="button">
+                                        <i class="small material-icons calendario">event</i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="input-texto-before-detalle" [ngClass]="{ 'error': errorCampoDetalle}">
+                            <div class="input-group">
+                                <input class="form-control input-texto" type="text" name="detalleRestriccion"
+                                    ngbTooltip="Detalle de restriccion" [(ngModel)]="detalle.detalle" required>
+                            </div>
+                        </div>
+                        <div class="input-texto-before-juez" [ngClass]="{ 'error': errorCampoJuez}">
+                            <div class="input-group">
+                                <input class="form-control input-texto" type="text" name="juezRestriccion"
+                                    ngbTooltip="Juez" [(ngModel)]="detalle.juez" required>
+                            </div>
+                        </div>
+                        <div class="input-before-selector-comisaria" [ngClass]="{ 'error': errorCampoSelectorComisaria}">
+                            <select class="select-estilo" name="comisariaSeleccionado" id="comisariaSeleccionado" [(ngModel)]="comisariaSeleccionado" required>
+                                <option value="" disabled selected>Seleccione una comisaría</option>
+                                <option *ngFor="let comisaria of comisarias" [value]="comisaria.idComisaria">{{comisaria.nombre}}</option>
+                            </select>
+                        </div>
+                        <div class="input-before-selector-juzgado" [ngClass]="{ 'error': errorCampoSelectorJuzgado}">
+                            <select class="select-estilo" name="juzgadoSeleccionado" id="juzgadoSeleccionado" [(ngModel)]="juzgadoSeleccionado" required>
+                                <option value="" disabled selected>Seleccione un juzgado</option>
+                                <option *ngFor="let juzgado of juzgados" [value]="juzgado.idJuzgado">{{ juzgado.nombre}}</option>
+                            </select>
+                        </div>
+
+
+                        <!-- [disabled]="!restriccionForm.valid"-->
+                        <button class="btn btn-restriccion">Agregar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- TABLA DE RESTRICCIONES -->
+        <div class="col" *ngIf="mostrarAbmRestricciones && !restriccionFisica">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">
+                            <div class="header-tabla">
+                                N°
+                                <a (click)="ordenarPorID()">
+                                    <i class="material-icons ordenamiento">unfold_more</i>
+                                </a>
+                            </div>
+                        </th>
+                        <th scope="col">
+                            <div class="header-tabla">
+                                Victimario
+                                <a (click)="ordenarPorVictimario()">
+                                    <i class="material-icons ordenamiento">unfold_more</i>
+                                </a>
+                            </div>
+                        </th>
+                        <th scope="col">
+                            <div class="header-tabla">
+                                Damnificada
+                                <a (click)="ordenarPorDamnificada()">
+                                    <i class="material-icons ordenamiento">unfold_more</i>
+                                </a>
+                            </div>
+                        </th>
+                        <th scope="col">
+                            <div class="header-tabla">
+                                Administrativo
+                                <a (click)="ordenarPorAdministrativo()">
+                                    <i class="material-icons ordenamiento">unfold_more</i>
+                                </a>
+                            </div>
+                        </th>
+                        <th scope="col">
+                            <div class="header-tabla">
+                                Grupo
+                                <a (click)="ordenarPorGrupoR()">
+                                    <i class="material-icons ordenamiento">unfold_more</i>
+                                </a>
+                            </div>
+                        </th>
+                        <th scope="col">Operaciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let restriccion of restriccionService.restricciones">
+                        <td>{{restriccion.restriccion.idRestriccion}}</td>
+                        <td>{{restriccion.victimario.dni}}</td>
+                        <td>{{restriccion.damnificada.dni}}</td>
+                        <td>{{restriccion.administrativo.email}}</td>
+                        <td>#{{restriccion.restriccion.idGrupo}}-{{restriccion.grupo.nombreGrupo}}</td>
+                        <td class="iconos">
+                            <a (click)="editarRestriccion(restriccion)">
+                                <i class="material-icons">edit</i>
+                            </a>
+                            <a (click)="eliminarRestriccion(restriccion)">
+                                <i class="material-icons">delete</i>
+                            </a>
+                            <a (click)="masInfo(restriccion)">
+                                <i class="material-icons">info</i>
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- FILTROS -->
+        <div class="contenedor-filtros" *ngIf="mostrarAbmRestricciones && !restriccionFisica">
+            <div class="filtro">
+                <button class="image-button" (click)="toggleSelect()">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                        class="bi bi-funnel-fill" viewBox="0 0 16 16" style="width: 24px; height: 24px;">
+                        <path
+                            d="M1.5 1.5A.5.5 0 0 1 2 1h12a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.128.334L10 8.692V13.5a.5.5 0 0 1-.342.474l-3 1A.5.5 0 0 1 6 14.5V8.692L1.628 3.834A.5.5 0 0 1 1.5 3.5z" />
+                    </svg>
+                </button>
+            </div>
+            <div class="card2 caja-filtros" *ngIf="showSelect">
+
+                <div class="card-body">
+                    <legend>Filtrar por:</legend>
+
+                    <!-- FILTRO DNI DAMNIFICADA-->
+                    <div class="row input-texto-before-dniD filtro">
+                        <div class="filtro-btn" input-group>
+                            <input class="form-control input-texto" type="text" name="dniD"
+                                [(ngModel)]="dniFilterDamnificada">
+                        </div>
+                    </div>
+                    <!-- FILTRO DNI VICTIMARIO-->
+                    <div class="row input-texto-before-dniV filtro">
+                        <div class="filtro-btn " input-group>
+                            <input class="form-control input-texto" type="text" name="dniV"
+                                [(ngModel)]="dniFilterVictimario">
+                        </div>
+                    </div>
+
+
+                    <!-- FILTRO EMAIL ADMIN-->
+                    <div class="row input-texto-before-emailA filtro">
+                        <div class="filtro-btn " input-group>
+                            <input class="form-control input-texto" type="text" name="emailA" [(ngModel)]="emailFilter">
+                        </div>
+                    </div>
+
+                    <!-- FILTRO GRUPO-->
+                    <div class="row input-texto-before-grupoF filtro">
+                        <div class="filtro-btn " input-group>
+                            <input class="form-control input-texto" type="text" name="grupo" [(ngModel)]="grupoFilter">
+                        </div>
+                    </div>
+
+
+                    <div class="boton-filtro">
+                        <button class="btn btn-primary btn-block" (click)="filtrarTodo()">Filtrar</button>
+                    </div>
+
+                    <div class="traer-todo">
+                        <button class="btn btn-primary btn-block" (click)="traerTodos()">Obtener todos</button>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Grupos-------------------------------------------------------------------------->
+
+    <div class="contenedor-grupos">
+        <form *ngIf="mostrarGrupoRestricciones" action="GET" (ngSubmit)="crearGrupo()" class="card formulario-grupo">
+            <legend>Nuevo grupo</legend>
+            <div class="input-before-texto-grupo" [ngClass]="{ 'error': errorTextoEquipo}">
+                <input class="input-texto" type="text" [(ngModel)]="nombreEquipo">
+            </div>
+            <div class="input-before-selector-nuevo-grupo" [ngClass]="{ 'error': errorTurno}">
+                <select name="" id="" [(ngModel)]="turnoGrupo" class="select-estilo">
+                    <option value="MAÑANA">Mañana</option>
+                    <option value="TARDE">Tarde</option>
+                    <option value="NOCHE">Noche</option>
+                </select>
+            </div>
+            <button class="btn btn-form-grupo">Agregar</button>
+        </form>
+
+        <form class="seleccionar-grupo" *ngIf="mostrarGrupoRestricciones" action="GET" (ngSubmit)="(getGrupo())"
+            class="card formulario-grupo">
+            <legend class="titulo">Seleccionar grupos</legend>
+            <div class="input-before-selector-seleccion-grupo">
+                <select name="" id="" [(ngModel)]="grupoSeleccionado" class="select-estilo">
+                    <option value={{grupo}} *ngFor="let grupo of grupos">
+                        {{"Grupo "+grupo}}
+                    </option>
+                </select>
+            </div>
+            <button class="btn btn-form-grupo">Seleccionar</button>
+        </form>
+    </div>
+
+    <div *ngIf="mostrarGrupo && mostrarGrupoRestricciones">
+        <legend class="titulo">{{grupoActual.nombreGrupo}}</legend>
+
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Administrativos</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let user of usuariosDelGrupo">
+                    <td *ngIf="user.rolDeUsuario=='ADMINISTRATIVO'">{{user.email}}</td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Identificación de la Restricciónes</th>
+                    <th>Distancias</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let restriccion of restriccionesDelGrupo">
+                    <td>{{restriccion.idRestriccion}}</td>
+                    <td>{{restriccion.distancia}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!--Componente de restricciones fisicas-->
+    <app-administrar-restricciones-fisicas *ngIf="restriccionFisica"></app-administrar-restricciones-fisicas>
+
+    <!--Componente de restricciones multiples personas-->
+    <app-administrar-restricciones-multiples-persona
+        *ngIf="restriccionMultiplePersona"></app-administrar-restricciones-multiples-persona>
+
+    <div class="botonera-restricciones">
+        <button class="boton-cambio-pantalla btn"
+            *ngIf="mostrarAbmRestricciones||restriccionFisica||restriccionMultiplePersona" (click)="mostrarGrupos()">
+            Grupos
+        </button>
+        <button class="boton-cambio-pantalla btn"
+            *ngIf="mostrarAbmRestricciones||restriccionMultiplePersona||mostrarGrupoRestricciones"
+            (click)="mostrarRestriccionesFisicas()">
+            Restricciones Fisicas
+        </button>
+        <button class="boton-cambio-pantalla btn"
+            *ngIf="mostrarGrupoRestricciones||restriccionFisica||restriccionMultiplePersona"
+            (click)="mostrarRestricciones()">
+            Restricciones
+        </button>
+        <button class="boton-cambio-pantalla btn"
+            *ngIf="mostrarGrupoRestricciones||restriccionFisica||mostrarAbmRestricciones"
+            (click)="mostrarMultiplesPersonas()">
+            Restricciones multiples
+        </button>
+    </div>
+</div>
+
+<!-- DIV MAS INFO VENTANA MODAL-->
+<div class="modal-info" *ngIf="modalAbierta" (click)="cerrarModal()">
+    <div class="modal-container">
+        <div class="modal-header">
+            <h2>Restricción Perimetral #<strong>{{ infoResId }} </strong></h2>
+            <i class="material-icons" (click)="cerrarModal()">close</i>
+        </div>
+        <div class="modal-body">
+            <!-- INFO ADMINISTRADOR-->
+            <div class="modal-infoAdm input-texto-before-admin">
+                <p><strong>{{ infoResAdmin }} </strong></p>
+            </div>
+            <!-- INFO RESTRICCION-->
+            <div class="modal-infoRes">
+
+                <!-- INFO DAMINIFICADA Y AGRESOR-->
+                <div class="modal-infoP">
+                    <p class="input-texto-before-nameDam"><strong>
+                            {{ infoDamnificadaNombre }}
+                        </strong></p>
+                    <p class="input-texto-before-dniDam"><strong>
+                            {{ infoDamnificadaDNI }}
+                        </strong></p>
+                    <p class="input-texto-before-nameVic"> <strong> {{ infoVictimarioNombre }}</strong> </p>
+                    <p class="input-texto-before-dniVic"> <strong> {{ infoVictimarioDNI }}</strong></p>
+                </div>
+
+                <!-- INFO DISTANCIA Y PROX COMISARIA/JUZGADO-->
+                <div class="modal-infoRes1">
+                    <p class="input-texto-before-juez"> <strong> {{ infoResJuez }}</strong> </p>
+                    <p class="input-texto-before-juzgado"> <strong> {{ infoResJuzgado }}</strong></p>
+                    <p class="input-texto-before-comisaria"> <strong> {{ infoResComisaria }} </strong> </p>
+                    
+                </div>
+
+                <!-- INFO FECHA SENTENCIA Y PROX NIVEL DE PELIGROSIDAD-->
+                <div class="modal-infoRes2">
+                    <p class="input-texto-before-distancia"> <strong> {{ infoResDistancia }}</strong></p>
+                    <p class="input-texto-before-fecha"> <strong>{{ infoResFecha }} </strong></p>
+                    <p class="input-texto-before-detalle"> <strong> {{ infoResDetalle }}</strong></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

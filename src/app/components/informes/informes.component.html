@@ -1,0 +1,47 @@
+<div class="container">
+    <div class="contenedor-titulo">
+        <nav class="navbar navbar-expand-lg navbar-light titulo-informes">
+            <a class="navbar-brand"> Informes </a>
+        </nav>
+    </div>
+
+
+    <div class="tabla-informes">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Tipo de Informe
+                        <a (click)="ordenamiento()">
+                            <i class="material-icons ordenamiento">unfold_more</i>
+                        </a>
+                    </th>
+                    <th class="columna-operaciones">Operaciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let informe of informes">
+                    <td>{{ informe.tipo }}</td>
+                    <td class="columna-operaciones">
+
+                        <!--Este boton es para imprimir, tiene que abrir directamente la impresion-->
+                        <button ngbTooltip="Imprimir" (click)="imprimir(informe.tipo)">
+                            <span class="material-icons">
+                                print
+                            </span>
+                        </button>
+                        <!--Este boton es para la vista previa, tiene que abrir directamente la impresion-->
+                        <button ngbTooltip="Vista Previa" (click)="vistaprevia(informe.tipo)">
+                            <span class="material-icons">
+                                preview
+                            </span>
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+
+
+
+</div>

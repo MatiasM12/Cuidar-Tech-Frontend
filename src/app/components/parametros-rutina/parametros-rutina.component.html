@@ -1,0 +1,138 @@
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+<div class="container">
+    <ngx-spinner type="ball-clip-rotate" size="medium" bdColor="rgba(51,51,51,0.3)" color="#26294D">
+        <p style="font-size: 15px; font-weight: bold; color: #26294D">Cargando...</p>
+    </ngx-spinner>
+
+    
+   
+
+    <div class="container-elementos-configuracion">
+        <form #config= "ngForm" action="POST" class="configuraciones"  (ngSubmit)="enviarInformacionEntrenamiento()">
+                <div class="header-config">
+                    <h3>Configuración</h3>
+                    <select [(ngModel)]="idvictimario"  class="select-estilo select-perimetral" name="perimetral">
+                        <option [value]="" disabled selected>Seleccione una perimetral</option>
+                        <option *ngFor="let restriccion of restricciones" [value]="restriccion.victimario.idPersona">{{"Perimetral NRO: "+restriccion.restriccion.idRestriccion}}</option>
+                    </select>
+                </div>
+               
+                
+                <div class="input-container">
+                    <label class="cantidad-inputs" for="distancia-permitida">Distancia permitida</label>
+                    <div class="label-cantidad">
+                        <input [(ngModel)]="distancia" id="distancia-permitida" min="1" max="10" value="3" type="range" name="distancia-permitida">
+                        <label>{{distancia}}</label>
+                    </div>
+                </div>
+                <div class ="input-container">
+                    <label class="cantidad-inputs" for="cantidad-epochs">Epochs</label>
+                    <div class="label-cantidad">
+                        <input  [(ngModel)]="epochs" id="cantidad-epochs" type="range" min="1" max="240" value="80" name="epochs">
+                        <label>{{epochs}}</label>
+                    </div>
+                </div>
+                <div class ="input-container">
+                    <label class="cantidad-inputs" for="cantidad-inputs">Input length</label>
+                    <div class="label-cantidad">
+                        <input [(ngModel)]="inputlength" id="cantidad-inputs" type="range" min="1" max="50" value="25" name="input-length">
+                        <label>{{inputlength}}</label>
+                    </div>
+                </div>
+                <div class="input-container">
+                    <label class="cantidad-inputs" for="cantidad-nunits">Nunits</label>
+                    <div class="label-cantidad">
+                        <input [(ngModel)]="units" id="cantidad-nunits" type="range" min="64" max="256" value="128" name="nunits">
+                        <label>{{units}}</label>
+                    </div>
+                </div>
+                <div class="input-container">
+                    <label class="cantidad-inputs" for="cantidad-batch">Batch size</label>
+                    <div class="label-cantidad">
+                        <input [(ngModel)]="batch" id="cantidad-batch" min="64" max="512" value="256" type="range" name="batch-size">
+                        <label>{{batch}}</label>
+                    </div>
+                </div>
+                <input 
+                type="file"
+                id="csv"
+                accept=".csv" (change)="readFile($event)"/>       
+                <button *ngIf="!entrenando" class="btn">Entrenar</button>
+                <button *ngIf="entrenado" class="btn" (click)="vigilar()">Vigilar</button>
+
+                <div class="vigilancia-valor">
+                    <label *ngIf="vigilando" for="">
+                        Vigilancia activa
+                    </label>
+                    <label *ngIf="!vigilando" for="">
+                        Vigilancia desactivada
+                    </label>
+                </div>
+
+        </form>
+        <div class="scroll">
+            <select class="select-estilo select-dia" name="dia">
+                <option value="">Lunes</option>
+                <option value="">Martes</option>
+                <option value="">Miercoles</option>
+                <option value="">Jueves</option>
+                <option value="">Viernes</option>
+                <option value="">Sabado</option>
+                <option value="">Domingo</option>
+            </select>
+
+            <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">Fecha</th>
+                            <th scope="col">Latitud</th>
+                            <th scope="col">Longitud</th>
+                            <th scope="col">Día de la semana</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let fila of datosCsv">
+                            <td>
+                                {{fila[2]}}
+                            </td>
+                            <td>
+                                {{fila[1]}}
+                            </td>
+                            <td>
+                                {{fila[0]}}
+                            </td>
+                            <td>
+                                {{fila[3]}}
+                            </td>
+                        </tr>
+                    </tbody>
+            </table>
+            <div  *ngIf="sinDatos" class="sin-datos">
+                No hay datos para entrenar
+            </div>
+        </div>
+        
+    
+    </div>
+    <div class="entrenando" [ngClass]="{ 'mostrarCarga': entrenando}">
+        <span class="material-symbols-outlined">
+            hourglass_top
+        </span> 
+    </div>
+
+    <h3>Historial de modelos</h3>
+    <ul class="configuraciones-iniciadas">
+        <li class="configuracion-individual" (click) ="redireccionar(config)"*ngFor="let config of configuraciones">
+           <legend>Configuracion</legend>
+           <label for="">Input legth {{config.input_length}}</label>
+           <label for="">Output{{config.output}}</label>
+           <label for="">Distancia permitida: {{config.distanciaPermitida}}</label>
+           <label for="">N Units : {{config.nunits}}</label>
+           <label for="">Epochs: {{config.epochs}}</label>
+           <label for="">Batch size :{{config.batch_size}}</label>
+           <label for="">Persona vigilando: {{config.idPersona.dni}}</label>
+        </li>
+    </ul>
+
+</div>

@@ -1,0 +1,299 @@
+
+table{
+    height: fit-content;
+}
+.entrenando{
+  height: 200px;
+  width: 100%;
+  background-color: #9E58FF;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50px;
+  margin-top: 3rem;
+  opacity: 0;
+  transition: opacity 2s ease;
+}
+
+.mostrarCarga{
+  opacity: 1;
+}
+
+legend::after{
+  border-color: #9E58FF;
+}
+
+
+.sin-datos{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.material-symbols-outlined{
+  font-size: 5rem;
+  animation-name: carga;
+  animation-iteration-count: infinite;
+  animation-duration: 3s;
+}
+
+@keyframes carga {
+
+  0%{
+      transform: rotate(0deg);
+  }
+  
+  20%{
+    transform: rotate(72deg);
+  }
+
+  40%{
+    transform: rotate(144deg);
+  }
+
+  60%{
+    transform: rotate(216deg);
+  }
+
+  80%{
+    transform: rotate(286deg);
+  }
+
+  80%{
+    transform: rotate(360deg);
+  }
+
+}
+
+.configuraciones-iniciadas{
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  gap: 1rem;
+}
+
+.configuracion-individual{
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  background-color: #480971;
+  color: white;
+  padding: 2rem;
+  transition: 0.2s;
+  border-radius: 1rem;
+  cursor: pointer;
+}
+
+.configuracion-individual > label , .configuracion-individual > legend{
+  cursor: pointer;
+}
+
+.configuracion-individual:hover{
+  transform: rotate(3deg);
+}
+
+h3::after{
+  border-color: #9E58FF;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0;
+}
+.select-perimetral{
+    width: 150px;
+    background-color: #9E58FF;
+    border: 0px;
+}
+
+.select-dia{
+    width: 100px;
+    background-color: #9E58FF;
+    border: 0px;
+    margin-bottom: 1rem;
+}
+
+.btn{
+    background-color: #9E58FF;
+    color: black;
+}
+
+.vigilancia-valor{
+    margin-top: 0.5rem;
+}
+.container-elementos-configuracion{
+    display: flex;
+    flex-direction: row;
+    gap: 3rem;
+    
+}
+
+.label-cantidad{
+  display: flex;
+  flex-direction: column;
+}
+
+th{
+  background-color: #480971;
+  color: white;
+}
+
+
+.header-config{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+option{
+    text-overflow: ellipsis;
+}
+
+.input-container{
+    display: flex;
+    flex-direction: row;
+}
+
+
+.cantidad-inputs{
+    width: 100px;
+}
+
+.configuraciones{
+    background-color: #480971;
+    padding: 4rem;
+    color: white;
+    flex-direction: column;
+    display: flex;
+    height: fit-content;
+    width: 600px;
+    border-radius: 1rem;
+
+}
+
+input[type=range] {
+    -webkit-appearance: none; /* Hides the slider so that custom slider can be made */
+    width: 150px; /* Specific width is required for Firefox. */
+    background: transparent; /* Otherwise white in Chrome */
+  }
+  
+  input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+  }
+  
+  input[type=range]:focus {
+    outline: none; /* Removes the blue border. You should probably do some kind of focus styling for accessibility reasons though. */
+  }
+  
+  input[type=range]::-ms-track {
+    width: 150px;
+    cursor: pointer;
+    /* Hides the slider so custom styles can be added */
+    background: transparent; 
+    border-color: transparent;
+    color: transparent;
+  }
+
+  input[type=range]::-webkit-slider-runnable-track {
+    cursor: pointer;
+    height: 15px;
+    border-radius: 5px;
+  }
+  
+  input[type=range]:focus::-webkit-slider-runnable-track {
+    background: #367ebd;
+  }
+  
+  input[type=range]::-moz-range-track {
+    height: 15px;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  input[type=range]::-ms-track {
+    cursor: pointer;
+    background: transparent;
+    border-color: transparent;
+    border-width: 16px 0;
+    color: transparent;
+  }
+  input[type=range]::-ms-fill-lower {
+    background: #9E58FF;
+    border-radius: 5px;
+    height: 15px;
+
+  }
+  
+  input[type=range]:focus::-ms-fill-lower {
+    background: #9E58FF;
+    border-radius: 5px;
+    height: 15px;
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+    border: 1px solid #000000;
+  }
+  input[type=range]::-ms-fill-upper {
+    background: white;
+  }
+  input[type=range]:focus::-ms-fill-upper {
+    background: white;
+  }
+
+
+  
+input[type="range"]::-moz-range-progress {
+    background: #9E58FF;
+    border-radius: 5px;
+    height: 15px;
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+    border: 1px solid #000000;
+}
+  
+  input[type="range"]::-moz-range-track {  
+    background: white;
+  }
+
+
+  input[type=range]::-ms-thumb {
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+    border: 1px solid #000000;
+    border-radius: 50%;
+    background: #ffffff;
+    cursor: pointer;
+  }
+
+  input[type=range]::-moz-range-thumb {
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+    border: 1px solid #000000;
+    border-radius: 50%;
+    background: #ffffff;
+    cursor: pointer;
+  }
+
+  input[type="file"]{
+    -webkit-appearance: none;
+    text-align: left;
+    -webkit-rtl-ordering:  left;
+ }
+ input[type="file"]::file-selector-button {
+    background-color: #9E58FF;
+    border-radius: 5px;
+    border: 0px;
+   
+  }
+
+
+.scroll{
+  height: 500px;
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
