@@ -3,6 +3,14 @@ Cuidar Tech es un proyecto dedicado a la prevención de la violencia de género 
 
 ## Funcionalidades Destacadas ⚙️
 
+- Asignar, modificar y monitorear restricciones perimetrales.
+- ABM (Alta, Baja y Modificación) de personas, usuarios y juzgados.
+- Enviar pruebas de vida a los usuarios, aceptar o rechazar las mismas.
+- Generar predicciones de rutina.
+- Generar reportes del sistema.
+- Configurar parámetros de las rutinas y pruebas de vida.
+- Configurar los mensajes que son enviados desde el sistema (WhatsApp, Telegram o correo electrónico).
+
 ### Pruebas de Vida Automáticas
 Para asegurar la seguridad de los usuarios, implementamos un sistema de pruebas de vida automáticas. Esta funcionalidad permite que las pruebas de vida enviadas a los usuarios sean validadas automáticamente a través de un script de Python que corremos en el servidor.
 
