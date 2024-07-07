@@ -20,11 +20,13 @@ Para asegurar la seguridad de los usuarios, implementamos un sistema de pruebas 
       - Analiza expresiones faciales para determinar si los ojos están abiertos o cerrados, si la boca está abierta o cerrada, y si hay una sonrisa.
       - Utiliza bibliotecas como cv2, face_recognition, y mediapipe para procesar las imágenes y realizar el análisis.
 
-2. Descripción grafica
-   
-    ![Texto del párrafo (1)](https://github.com/MatiasM12/Cuidar-Tech-Frontend/assets/86579814/2c332b3f-3bb8-4303-b792-e7394c1f3656)
-    ![Texto del párrafo (2)](https://github.com/MatiasM12/Cuidar-Tech-Frontend/assets/86579814/35ada39a-9e08-49fd-abed-fab03603725b)
-    *(si una de las dos condiciones no se cumple, las pruebas de vida pasan a ser rechazadas)
+## 2. Descripción gráfica
+
+  <img src="https://github.com/MatiasM12/Cuidar-Tech-Frontend/assets/86579814/2c332b3f-3bb8-4303-b792-e7394c1f3656" alt="Texto del párrafo (1)" width="500"/>
+  
+  <img src="https://github.com/MatiasM12/Cuidar-Tech-Frontend/assets/86579814/35ada39a-9e08-49fd-abed-fab03603725b" alt="Texto del párrafo (2)" width="500"/>
+  
+  *(si una de las dos condiciones no se cumple, las pruebas de vida pasan a ser rechazadas)
 
 
 ### Predicción de Rutinas
@@ -37,7 +39,51 @@ Utilizando técnicas de Machine Learning, para predecir si el victimario puede v
 
 2. Descripción grafica
 
-    ![Texto del párrafo (5)](https://github.com/MatiasM12/Cuidar-Tech-Frontend/assets/86579814/d5ee9fbb-9338-44bf-a5c6-114b6eb2e833)
+    <img src="https://github.com/MatiasM12/Cuidar-Tech-Frontend/assets/86579814/d5ee9fbb-9338-44bf-a5c6-114b6eb2e833" alt="Texto del párrafo (2)" width="600"/>
+
+<div id="proyectos">
+<h2 >Demos 👨🏻‍💻</h2>
+<table align="left" >
+<tr border="none">
+  <td width="25%" align="center">
+    <p align="center">
+     <a href="https://youtu.be/aKQAXYPiSjk" title="Go to Source">
+        <img align="center" width=100% src="https://github.com/MatiasM12/Cuidar-Tech-Frontend/assets/86579814/6f3b262d-96a2-4e0c-bc93-86c2926e8c7b"   alt="VIDEO" /></a>
+      </p>
+    <p align="center">
+        <a href="https://youtu.be/aKQAXYPiSjk" target="blank"><img align="center" src="https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white"  /></a>
+      <a href="https://github.com/MatiasM12/Cuidar-Tech-Frontend" target="blank"><img align="center" src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white" alt="" /></a>
+    </p>       
+  </td> 
+  <td width="25%" align="center">
+    <p align="center">
+     <a href="https://youtu.be/BMFX0KDdOmg" title="Go to Source">
+        <img align="center" width=100% src="https://github.com/MatiasM12/Cuidar-Tech-Frontend/assets/86579814/cbaebad1-cecb-4491-9722-f38dbf9c86e4"   alt="VIDEO" /></a>
+      </p>
+    <p align="center">
+        <a href="https://youtu.be/BMFX0KDdOmg" target="blank"><img align="center" src="https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white"  /></a>
+      <a href="https://github.com/MatiasM12/Cuidar-Tech-Frontend" target="blank"><img align="center" src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white" alt="" /></a>
+    </p>       
+  </td> 
+    <td width="25%" align="center">
+    <p align="center">
+     <a href="https://youtu.be/-thK5VzImiQ" title="Go to Source">
+        <img align="center" width=100% src="https://github.com/MatiasM12/Cuidar-Tech-Frontend/assets/86579814/79cf2b8b-ad89-489b-bc2e-d37cb9fd4fc3)" alt="VIDEO" /></a>
+      </p>
+    <p align="center">
+        <a href="https://youtu.be/-thK5VzImiQ" target="blank"><img align="center" src="https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white"  /></a>
+      <a href="https://github.com/MatiasM12/Cuidar-Tech-Frontend" target="blank"><img align="center" src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white" alt="" /></a>
+    </p>       
+  </td> 
+  
+</tr>
+</table>
+</div>
+<br><br>
+<br><br>
+<br><br>
+<br><br>
+<br><br>
 
 ## Cuentas validas 👤
 Primero debemos ir a la pagina de ingreso que normalmente seria: http://localhost:4200/ingresar, a menos que tengamos desplegado el sistema.
