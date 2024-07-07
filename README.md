@@ -22,9 +22,9 @@ Para asegurar la seguridad de los usuarios, implementamos un sistema de pruebas 
 
 ## 2. Descripción gráfica
 
-  <img src="https://github.com/MatiasM12/Cuidar-Tech-Frontend/assets/86579814/2c332b3f-3bb8-4303-b792-e7394c1f3656" alt="Texto del párrafo (1)" width="500"/>
+  <img src="https://github.com/MatiasM12/Cuidar-Tech-Frontend/assets/86579814/2c332b3f-3bb8-4303-b792-e7394c1f3656" alt="Texto del párrafo (1)" width="700" align="center"/>
   
-  <img src="https://github.com/MatiasM12/Cuidar-Tech-Frontend/assets/86579814/35ada39a-9e08-49fd-abed-fab03603725b" alt="Texto del párrafo (2)" width="500"/>
+  <img src="https://github.com/MatiasM12/Cuidar-Tech-Frontend/assets/86579814/35ada39a-9e08-49fd-abed-fab03603725b" alt="Texto del párrafo (2)" width="700" align="center"/>
   
   *(si una de las dos condiciones no se cumple, las pruebas de vida pasan a ser rechazadas)
 
@@ -39,7 +39,7 @@ Utilizando técnicas de Machine Learning, para predecir si el victimario puede v
 
 2. Descripción grafica
 
-    <img src="https://github.com/MatiasM12/Cuidar-Tech-Frontend/assets/86579814/d5ee9fbb-9338-44bf-a5c6-114b6eb2e833" alt="Texto del párrafo (2)" width="600"/>
+    <img src="https://github.com/MatiasM12/Cuidar-Tech-Frontend/assets/86579814/d5ee9fbb-9338-44bf-a5c6-114b6eb2e833" alt="Texto del párrafo (2)" width="700" align="center"/>
 
 <div id="proyectos">
 <h2 >Demos 👨🏻‍💻</h2>
