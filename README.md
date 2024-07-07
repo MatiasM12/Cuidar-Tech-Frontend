@@ -21,13 +21,13 @@ Para asegurar la seguridad de los usuarios, implementamos un sistema de pruebas 
       - Utiliza bibliotecas como cv2, face_recognition, y mediapipe para procesar las imágenes y realizar el análisis.
 
 ## 2. Descripción gráfica
-
-  <img src="https://github.com/MatiasM12/Cuidar-Tech-Frontend/assets/86579814/2c332b3f-3bb8-4303-b792-e7394c1f3656" alt="Texto del párrafo (1)" width="700" align="center"/>
+<div align="center">
+  <img src="https://github.com/MatiasM12/Cuidar-Tech-Frontend/assets/86579814/2c332b3f-3bb8-4303-b792-e7394c1f3656" alt="Texto del párrafo (1)" width="600" />
   
-  <img src="https://github.com/MatiasM12/Cuidar-Tech-Frontend/assets/86579814/35ada39a-9e08-49fd-abed-fab03603725b" alt="Texto del párrafo (2)" width="700" align="center"/>
+  <img src="https://github.com/MatiasM12/Cuidar-Tech-Frontend/assets/86579814/35ada39a-9e08-49fd-abed-fab03603725b" alt="Texto del párrafo (2)" width="600" />
   
   *(si una de las dos condiciones no se cumple, las pruebas de vida pasan a ser rechazadas)
-
+</div >
 
 ### Predicción de Rutinas
 Utilizando técnicas de Machine Learning, para predecir si el victimario puede violar la restricción perimetral impuesta. Esta funcionalidad es crucial para prevenir posibles incidentes antes de que ocurran, proporcionando una capa adicional de seguridad para las víctimas.
@@ -38,10 +38,11 @@ Utilizando técnicas de Machine Learning, para predecir si el victimario puede v
       - Se calcula la distancia entre las ubicaciones obtenidas por el modelo y las reales, para detectar una posible violación de la perimetral.
 
 2. Descripción grafica
-
+<div align="center">
     <img src="https://github.com/MatiasM12/Cuidar-Tech-Frontend/assets/86579814/d5ee9fbb-9338-44bf-a5c6-114b6eb2e833" alt="Texto del párrafo (2)" width="700" align="center"/>
+</div >
 
-<div id="proyectos">
+<div >
 <h2 >Demos 👨🏻‍💻</h2>
 <table align="left" >
 <tr border="none">
