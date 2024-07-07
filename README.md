@@ -69,7 +69,7 @@ Utilizando técnicas de Machine Learning, para predecir si el victimario puede v
     <td width="25%" align="center">
     <p align="center">
      <a href="https://youtu.be/-thK5VzImiQ" title="Go to Source">
-        <img align="center" width=100% src="https://github.com/MatiasM12/Cuidar-Tech-Frontend/assets/86579814/79cf2b8b-ad89-489b-bc2e-d37cb9fd4fc3)" alt="VIDEO" /></a>
+        <img align="center" width=100% src="https://github.com/MatiasM12/Cuidar-Tech-Frontend/assets/86579814/79cf2b8b-ad89-489b-bc2e-d37cb9fd4fc3" alt="VIDEO" /></a>
       </p>
     <p align="center">
         <a href="https://youtu.be/-thK5VzImiQ" target="blank"><img align="center" src="https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white"  /></a>
