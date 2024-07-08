@@ -81,10 +81,6 @@ Utilizando técnicas de Machine Learning, para predecir si el victimario puede v
 </table>
 </div>
 <br><br>
-<br><br>
-<br><br>
-<br><br>
-<br><br>
 
 ## Cuentas validas 👤
 Primero debemos ir a la pagina de ingreso que normalmente seria: http://localhost:4200/ingresar, a menos que tengamos desplegado el sistema.
