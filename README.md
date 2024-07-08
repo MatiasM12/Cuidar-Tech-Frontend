@@ -20,7 +20,7 @@ Para asegurar la seguridad de los usuarios, implementamos un sistema de pruebas 
       - Analiza expresiones faciales para determinar si los ojos están abiertos o cerrados, si la boca está abierta o cerrada, y si hay una sonrisa.
       - Utiliza bibliotecas como cv2, face_recognition, y mediapipe para procesar las imágenes y realizar el análisis.
 
-## 2. Descripción gráfica
+2. Descripción gráfica
 <div align="center">
   <img src="https://github.com/MatiasM12/Cuidar-Tech-Frontend/assets/86579814/2c332b3f-3bb8-4303-b792-e7394c1f3656" alt="Texto del párrafo (1)" width="600" />
   
@@ -91,8 +91,10 @@ Las cuentas validas a las que podemos acceder son:
   - Correo electrónico: admin@admin.com
   - Contraseña: admin
   - Pantalla de inicio:
-    
-    ![image](https://github.com/Nicolas2k19/PP2Frontend/assets/86579814/8a1c4123-1317-4e64-9022-89a33a3fc5cb)
+  - 
+  ![l (10)](https://github.com/MatiasM12/Cuidar-Tech-Frontend/assets/86579814/d8c1cba5-e58f-4787-99d2-52ffe697ab00)
+
+  
 
 
 - **Cuenta de administrativo:**
@@ -100,18 +102,16 @@ Las cuentas validas a las que podemos acceder son:
   - Para acceder a estas cuentas, sigue el procedimiento de "Olvidaste tu contraseña" y se enviará una nueva contraseña al correo electrónico pp2proyectoviolenciagenero@gmail.com.
     Nota: Si el correo electrónico no funciona o estás en un entorno de desarrollo, podrás ver la nueva contraseña desde la consola del backend.
   - Pantalla de inicio:
-
-    ![image](https://github.com/Nicolas2k19/PP2Frontend/assets/86579814/c14b3015-fea3-48e2-ad76-f09ad988eb30)
-
+    
+  ![l (14)](https://github.com/MatiasM12/Cuidar-Tech-Frontend/assets/86579814/3fc1d978-1d32-44b2-a727-39eef824a144)
     
 - **Cuenta de supervisor general:**
   - Correo electrónico: supervisor@general.com
   - Para acceder a estas cuentas, sigue el procedimiento de "Olvidaste tu contraseña" y se enviará una nueva contraseña al correo electrónico pp2proyectoviolenciagenero@gmail.com.
     Nota: Si el correo electrónico no funciona o estás en un entorno de desarrollo, podrás ver la nueva contraseña desde la consola del backend.
   - Pantalla de inicio:
- 
-    ![image](https://github.com/Nicolas2k19/PP2Frontend/assets/86579814/1b2f423a-419d-4fd4-a17b-417ed2d023bf)
-
+    
+  ![l (15)](https://github.com/MatiasM12/Cuidar-Tech-Frontend/assets/86579814/84c15205-e822-4d6f-a841-6c9eeba826b9)
 
 ## Instrucciones para ejecutar el código 👨‍🏫
 
