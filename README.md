@@ -89,10 +89,8 @@ Las cuentas validas a las que podemos acceder son:
   - Correo electrónico: admin@admin.com
   - Contraseña: admin
   - Pantalla de inicio:
-  - 
+    
   ![l (10)](https://github.com/MatiasM12/Cuidar-Tech-Frontend/assets/86579814/d8c1cba5-e58f-4787-99d2-52ffe697ab00)
-
-  
 
 
 - **Cuenta de administrativo:**
@@ -101,8 +99,8 @@ Las cuentas validas a las que podemos acceder son:
     Nota: Si el correo electrónico no funciona o estás en un entorno de desarrollo, podrás ver la nueva contraseña desde la consola del backend.
   - Pantalla de inicio:
     
-  ![l (14)](https://github.com/MatiasM12/Cuidar-Tech-Frontend/assets/86579814/3fc1d978-1d32-44b2-a727-39eef824a144)
-    
+  ![l (14)](https://github.com/MatiasM12/Cuidar-Tech-Frontend/assets/86579814/5fe2df87-dbd7-46a8-bcdc-09b329d06d63)
+
 - **Cuenta de supervisor general:**
   - Correo electrónico: supervisor@general.com
   - Para acceder a estas cuentas, sigue el procedimiento de "Olvidaste tu contraseña" y se enviará una nueva contraseña al correo electrónico pp2proyectoviolenciagenero@gmail.com.
